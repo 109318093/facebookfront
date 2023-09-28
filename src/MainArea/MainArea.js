@@ -5,7 +5,7 @@ const serverUrl = process.env.PUBLIC_URL
 function MainArea() {
     return(
         <div className="Main grid grid-cols-3 gap-2 justify-center">
-            <div className="Lside mr-11  md:block hidden">
+            <div className="Lside mr-11 max-h-[50rem]  md:block hidden">
                 <div className="Upper">
                     <ul className="profile">
                         <li>
