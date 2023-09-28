@@ -36,7 +36,7 @@ function HeaderArea() {
                     </div>
                     
                 </div>
-                <div className="middlie-header">
+                <div className="middlie-header lg:block hidden">
                     <div className="Icon">
                         <img src={serverUrl + '/images/home.png'} alt="logo"></img>
                     </div>

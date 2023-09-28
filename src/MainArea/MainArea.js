@@ -5,7 +5,7 @@ const serverUrl = process.env.PUBLIC_URL
 function MainArea() {
     return(
         <div className="Main grid grid-cols-3 gap-2 justify-center">
-            <div className="Lside mr-11">
+            <div className="Lside mr-11  md:block hidden">
                 <div className="Upper">
                     <ul className="profile">
                         <li>
@@ -70,7 +70,7 @@ function MainArea() {
                     </ul>
                 </div>
             </div>
-            <div className="contain">
+            <div className="contain  md:max-w-3xl max-w-screen-sm">
                 <div className="video">
                     <div className="video-block">
                         <a>
@@ -173,7 +173,7 @@ function MainArea() {
                     </div>
                 </div>
             </div>
-            <div className="friend-list">
+            <div className="friend-list md:block hidden">
                 <div>
                     <p>test</p>
                 </div>
