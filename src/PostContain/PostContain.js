@@ -11,7 +11,6 @@ function PostContain() {
         } else {
             icon.classList.add('hidden')
         }
-        
     }
     return(
         <div className="post-container bg-white flex rounded-lg shadow-xl mt-4 p-2 grid grid-cols-1">
@@ -67,8 +66,8 @@ function PostContain() {
             <hr className="m-2"></hr>
             <div className="flex items-top gap-2 m-2">
                 <img className="max-w-[2rem] max-h-[2rem] m-1" src={serverUrl + '/logo192.png'}></img>
-                <div className=" w-full items-center outline-none " >
-                    <p onFocus={shadowIcon} onBlur={shadowIcon} className="min-h-[2rem] p-2 bg-slate-200 w-full break-all outline-none text-sm text-left rounded-full focus:min-h-[5rem] focus:rounded-b-lg" role="textbox" contentEditable="true" aria-multiline="true" aria-placeholder="5-digit zipcode"></p>
+                <div className=" w-full items-center outline-none min-h-[2rem] p-2 bg-slate-200 w-full break-all text-sm text-left rounded-full focus-within:min-h-[5rem] focus-within:rounded-lg" >
+                    <p onFocus={shadowIcon} onBlur={shadowIcon} className="outline-none focus:min-h-[5rem]" role="textbox" contentEditable="true" aria-multiline="true" aria-placeholder="5-digit zipcode"></p>
                     <div id="messageIcon" className=" bg-slate-200 rounded-b-lg hidden">test</div>
                 </div>
             </div>
