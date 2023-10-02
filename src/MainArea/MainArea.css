@@ -7,8 +7,6 @@
 
 .Lside {
     margin-top: 10px;
-    position: sticky;
-    top: 10%;
     width: 15%;
 }
 
@@ -86,10 +84,7 @@ li span {
 .friend-list {
     /* margin-left: 10%; */
     margin-top: 10px;
-    position: sticky;
-    top: 10%;
     width: 15%;
-    height: 50%;
     overflow-y: auto;
 }
 
