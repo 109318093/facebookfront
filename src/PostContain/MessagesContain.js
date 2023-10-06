@@ -45,6 +45,8 @@ function MessagesContain ({id,name,comment,setMsg}) {
         };
 
         // 使用 setMsg 更新状态，传递新的评论数据
+        // useState宣告出來的function第一個值都是當前的資料內容
+        // 通常都會取名叫做prevData透過改變prevData讓useState去更改資料狀態重新渲染
         setMsg(prevData => insertNewMessage(prevData, id, newMsg));
     }
     return(
