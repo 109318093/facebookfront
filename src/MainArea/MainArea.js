@@ -123,7 +123,7 @@ function MainArea() {
                     <PostContain />
                 </div>
             </div>
-            <div className="friend-list lg:block hidden sticky max-h-[10rem] top-[10%]">
+            <div className="friend-list lg:block hidden sticky max-h-[40rem] top-[10%]">
                 <div>
                     <p>test</p>
                 </div>
