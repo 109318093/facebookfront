@@ -23,7 +23,7 @@ function HeaderArea() {
 
     return(
         <div className="HomePage">
-            <div className="header grid grid-cols-5 gap-2">
+            <div className="header grid grid-cols-3 justify-between">
                 <div className="first-header">
                     <div className="logo">
                         <Link to="/LoginPage"><img src={serverUrl + '/images/facebook.png'} alt="logo"></img></Link>
@@ -36,24 +36,27 @@ function HeaderArea() {
                     </div>
                     
                 </div>
-                <div className="middlie-header lg:block hidden">
-                    <div className="Icon">
-                        <img src={serverUrl + '/images/home.png'} alt="logo"></img>
+                <div className="middlie-header lg:block hidden w-96">
+                    <div className="w-full flex items-center justify-center">
+                        <div className="Icon">
+                            <img src={serverUrl + '/images/home.png'} alt="logo"></img>
+                        </div>
+                        <div className="Icon">
+                            <img src={serverUrl + '/images/user.png'} alt="logo"></img>
+                        </div>
+                        <div className="Icon">
+                            <img src={serverUrl + '/images/youtube.png'} alt="logo"></img>
+                        </div>
+                        <div className="Icon">
+                            <img src={serverUrl + '/images/shop.png'} alt="logo"></img>
+                        </div>
+                        <div className="Icon">
+                            <img src={serverUrl + '/images/multiple-users-silhouette.png'} alt="logo"></img>
+                        </div>
                     </div>
-                    <div className="Icon">
-                        <img src={serverUrl + '/images/user.png'} alt="logo"></img>
-                    </div>
-                    <div className="Icon">
-                        <img src={serverUrl + '/images/youtube.png'} alt="logo"></img>
-                    </div>
-                    <div className="Icon">
-                        <img src={serverUrl + '/images/shop.png'} alt="logo"></img>
-                    </div>
-                    <div className="Icon">
-                        <img src={serverUrl + '/images/multiple-users-silhouette.png'} alt="logo"></img>
-                    </div>
+                    
                 </div>
-                <div className="third-header">
+                <div className="third-header flex items-center justify-between ml-56">
                     <div className="Pluss">
                         <img src={serverUrl + '/images/plus.png'} alt="logo"></img>
                     </div>
