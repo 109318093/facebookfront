@@ -9,19 +9,24 @@ const comments = [
     {
         id: v4(),
         name:"test1",
+        conten:'這是測試資料1',
         items: [{
             id: v4(),
             name:'test2',
+            conten:'這是測試資料2',
             items: [
                 {
                     id: v4(),
                     name:'test3',
+                    conten:'這是測試資料3',
                     items: [{
                         id: v4(),
                         name:'test4',
+                        conten:'這是測試資料4',
                         items: [{
                             id: v4(),
                             name:'test5',
+                            conten:'這是測試資料5',
                             items: [],
                         }],
                     }],
@@ -29,12 +34,15 @@ const comments = [
                 {
                     id: v4(),
                     name:'test3',
+                    conten:'這是測試資料3',
                     items: [{
                         id: v4(),
                         name:'test4',
+                        conten:'這是測試資料4',
                         items: [{
                             id: v4(),
                             name:'test5',
+                            conten:'這是測試資料5',
                             items: [],
                         }],
                     }],
@@ -127,6 +135,7 @@ function PostContain() {
                     key={msg.id}
                     id={msg.id}
                     name={msg.name}
+                    conten={msg.conten}
                     comment={msg.items}
                     setMsg={setMsg}
                 />
