@@ -23,7 +23,7 @@ function MainArea() {
     // }, []);
     return(
         <div className="Main grid grid-cols-3 gap-2 justify-center ">
-            <div className="Lside sticky mr-11 max-h-[1rem]  lg:block hidden">
+            <div className="Lside sticky mr-11 max-h-[1rem] top-[10%] lg:block hidden">
                 <div className="Upper">
                     <ul className="profile">
                         <li>
@@ -138,7 +138,7 @@ function MainArea() {
                 </div>
                 <div className="post m-2 max-w-4xl">
                     <PostContain />
-                    {/* <PaginationContain data={data} setTest={setTest} testData={testData} currPage={currPage} setCurrPage={setCurrPage}/> */}
+                    <PaginationContain data={data} setTest={setTest} testData={testData} currPage={currPage} setCurrPage={setCurrPage}/>
                 </div>
             </div>
             <div className="friend-list lg:block hidden sticky max-h-[40rem] top-[10%]">
