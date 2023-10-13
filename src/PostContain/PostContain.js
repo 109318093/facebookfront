@@ -71,6 +71,7 @@ function PostContain() {
     }
     return(
         <div className="post-container bg-white flex rounded-lg shadow-xl mt-4 p-2 grid grid-cols-1">
+            <button class="opacity-0 translate-y-96 bg-slate-500 transition duration-1000 hover:translate-y-0 hover:opacity-100">Button A</button>
             <div className="flex items-center">
                 <img className="w-[3rem]" src={serverUrl + '/logo192.png'}></img>
                 <div className="grid justify-items-start text-base">
@@ -140,7 +141,6 @@ function PostContain() {
                     setMsg={setMsg}
                 />
             ))}
-            
         </div>
     )
 }

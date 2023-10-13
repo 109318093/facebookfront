@@ -16,10 +16,10 @@ async function getData() {
 function HeaderArea() {
     console.log('第一次')
 
-    useEffect(() => {
-        console.log(123)
-        // getData()
-    }, [])
+    // useEffect(() => {
+    //     console.log(123)
+    //     getData()
+    // }, [])
 
     return(
         <div className="HomePage">

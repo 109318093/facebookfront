@@ -1,12 +1,29 @@
 import React from "react";
 import './MainArea.css';
 import { Link } from 'react-router-dom'
+import { useState, useEffect } from "react"
 import PostContain from "../PostContain/PostContain";
+import PaginationContain from "../PaginationContain/PaginationContain";
 const serverUrl = process.env.PUBLIC_URL
+
+const data = [];
+const num = 80;
+for (let i = 0; i < num; i++) {
+    data.push({id:'test' + i,num:i});
+}
+console.log(data)
+
 function MainArea() {
+    const [testData, setTest] = useState(data.slice(0, 10));
+    const [currPage, setCurrPage] = useState(1)
+    console.log(testData)
+    // useEffect(() => {
+    //     const newData = data.slice(0, 10);
+    //     setTest(newData);
+    // }, []);
     return(
         <div className="Main grid grid-cols-3 gap-2 justify-center ">
-            <div className="Lside sticky  mr-11 max-h-0  lg:block hidden top-[10%]">
+            <div className="Lside sticky mr-11 max-h-[1rem]  lg:block hidden">
                 <div className="Upper">
                     <ul className="profile">
                         <li>
@@ -121,6 +138,7 @@ function MainArea() {
                 </div>
                 <div className="post m-2 max-w-4xl">
                     <PostContain />
+                    {/* <PaginationContain data={data} setTest={setTest} testData={testData} currPage={currPage} setCurrPage={setCurrPage}/> */}
                 </div>
             </div>
             <div className="friend-list lg:block hidden sticky max-h-[40rem] top-[10%]">
