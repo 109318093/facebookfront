@@ -3,8 +3,18 @@ import { Link } from 'react-router-dom'
 import { v4 } from "uuid";
 const serverUrl = process.env.PUBLIC_URL
 
-function MessagesContain ({id,name,conten,comment,setMsg}) {
+function MessagesContain ({id,name,conten,comment,setMsg,setShowUserTag,setUserTagPosition}) {
     
+    function showUserTag(e) {
+        const tagPosition = e.target.getBoundingClientRect();
+        setShowUserTag(true)
+        setUserTagPosition({ top: tagPosition.top, left: tagPosition.left})
+    }
+
+    function unShowUserTag() {
+        setShowUserTag(false)
+    }
+
     const [showReply, setShowReply] = useState(false); // 初始化状态
     // 顯示回覆對話框
     const showComment = () => {
@@ -82,7 +92,9 @@ function MessagesContain ({id,name,conten,comment,setMsg}) {
     return(
         <div className="w-full">
             <div className="flex items-top gap-2 m-2 w-auto">
-                <img className="max-w-[2rem] max-h-[2rem] m-1" src={serverUrl + '/logo192.png'}></img>
+                <div>
+                    <img className="max-w-[2rem] max-h-[2rem] m-1" src={serverUrl + '/logo192.png'} onMouseOver={(e) => showUserTag(e)} onMouseLeave={unShowUserTag}></img>
+                </div>
                 <div className="m-1 w-full">
                     <div className=" justify-center items-center p-3 text-left bg-slate-200 rounded-lg">
                         <div className="text-sm font-semibold cursor-pointer">{name}</div>
@@ -123,7 +135,14 @@ function MessagesContain ({id,name,conten,comment,setMsg}) {
                 comment.map((msg) => {
                     return (
                     <div className="ml-12" key={msg.id}>
-                        <MessagesContain id={msg.id} name={msg.name} conten={msg.conten} comment={msg.items} setMsg={setMsg} />
+                        <MessagesContain 
+                            id={msg.id} name={msg.name}
+                            conten={msg.conten}
+                            comment={msg.items}
+                            setMsg={setMsg}
+                            setShowUserTag={setShowUserTag}
+                            setUserTagPosition={setUserTagPosition}
+                        />
                     </div>
                     );
                 })

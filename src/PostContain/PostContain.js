@@ -50,9 +50,10 @@ const comments = [
             ],
         }],
     },
+    
 ];
 
-function PostContain() {
+function PostContain({setShowUserTag, setUserTagPosition}) {
     const [msgs, setMsg] = useState(comments)
     function messageChang(e) {
         console.log(e.target.innerText)
@@ -69,11 +70,24 @@ function PostContain() {
             msgContain.classList.add('overflow-hidden')
         }
     }
+
+    function showUserTag(e) {
+        // 取得目前hover的元素位置資料以及高度寬度
+        const tagPosition = e.target.getBoundingClientRect();
+        setShowUserTag(true)
+        // 設定使用者簡介位置
+        setUserTagPosition({ top: tagPosition.top, left: tagPosition.left})
+    }
+
+    function unShowUserTag() {
+        setShowUserTag(false)
+    }
+
     return(
         <div className="post-container bg-white flex rounded-lg shadow-xl mt-4 p-2 grid grid-cols-1">
-            <button class="opacity-0 translate-y-96 bg-slate-500 transition duration-1000 hover:translate-y-0 hover:opacity-100">Button A</button>
+            {/* <button class="opacity-0 translate-y-96 bg-slate-500 transition duration-1000 hover:translate-y-0 hover:opacity-100">Button A</button> */}
             <div className="flex items-center">
-                <img className="w-[3rem]" src={serverUrl + '/logo192.png'}></img>
+                <img className="w-[3rem]" src={serverUrl + '/logo192.png'} onMouseOver={(e) => showUserTag(e)} onMouseLeave={unShowUserTag}></img>
                 <div className="grid justify-items-start text-base">
                     <Link className="font-semibold" to="/LoginPage">UserName</Link>
                     <span>2天</span>
@@ -139,6 +153,8 @@ function PostContain() {
                     conten={msg.conten}
                     comment={msg.items}
                     setMsg={setMsg}
+                    setShowUserTag={setShowUserTag}
+                    setUserTagPosition={setUserTagPosition}
                 />
             ))}
         </div>

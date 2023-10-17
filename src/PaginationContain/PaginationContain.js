@@ -34,7 +34,6 @@ function PaginationContain ({data,setTest,testData,currPage,setCurrPage}) {
                 <button className="list-none text-sm w-[5rem] h-[2rem] bg-slate-800 border border-slate-600 flex items-center justify-center rounded-r-lg hover:bg-slate-600 text-slate-400 hover:text-white font-bold"onClick={() => getData(currPage+1)}>下一頁</button>
             </div>
         </div>
-        
     )
 }
 

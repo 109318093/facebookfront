@@ -1,9 +1,10 @@
 import React from "react";
 import './MainArea.css';
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import PostContain from "../PostContain/PostContain";
 import PaginationContain from "../PaginationContain/PaginationContain";
+import UserTagContain from "../PostContain/UserTagContain";
 const serverUrl = process.env.PUBLIC_URL
 
 const data = [];
@@ -16,6 +17,12 @@ console.log(data)
 function MainArea() {
     const [testData, setTest] = useState(data.slice(0, 10));
     const [currPage, setCurrPage] = useState(1)
+    // 控制使用者簡介顯示
+    const [showUserTag, setShowUserTag] = useState(false)
+    // 元素位置紀錄目前hover
+    const [userTagPosition, setUserTagPosition] = useState({top: 0, left: 0})
+    // 先建立一個名為userTagRef的Ref當UserTag裡面對應的ref={userTagRef}渲染後userTagRef裡面就會存放那個ref裡面的元素內容
+    const userTagRef = useRef(null);
     console.log(testData)
     // useEffect(() => {
     //     const newData = data.slice(0, 10);
@@ -23,6 +30,20 @@ function MainArea() {
     // }, []);
     return(
         <div className="Main grid grid-cols-3 gap-2 justify-center ">
+            {/* <div className="w-screen h-full z-10 fixed flex items-center justify-center">
+                <div className="w-screen h-full z-40 bg-black opacity-20"></div>  
+                <div className="w-96 h-auto bg-white opacity-100 z-50 fixed rounded-lg">
+                    213
+                    213
+                    213
+                    213
+                    213
+                    <div>
+                    213
+                    </div>
+                </div>
+            </div> */}
+            
             <div className="Lside sticky mr-11 max-h-[1rem] top-[10%] lg:block hidden">
                 <div className="Upper">
                     <ul className="profile">
@@ -137,8 +158,20 @@ function MainArea() {
                     </div>
                 </div>
                 <div className="post m-2 max-w-4xl">
-                    <PostContain />
-                    <PaginationContain data={data} setTest={setTest} testData={testData} currPage={currPage} setCurrPage={setCurrPage}/>
+                    <PostContain 
+                        setShowUserTag={setShowUserTag}
+                        setUserTagPosition={setUserTagPosition}
+                    />
+                    <PostContain 
+                        setShowUserTag={setShowUserTag}
+                        setUserTagPosition={setUserTagPosition}
+                    />
+                    {/* <PaginationContain data={data} setTest={setTest} testData={testData} currPage={currPage} setCurrPage={setCurrPage}/> */}
+                    {/* <div> */}
+                        {showUserTag && (
+                            <UserTagContain userTagPosition={userTagPosition} setShowUserTag={setShowUserTag} showUserTag={showUserTag} userTagRef={userTagRef} />
+                        )}
+                    {/* </div> */}
                 </div>
             </div>
             <div className="friend-list lg:block hidden sticky max-h-[40rem] top-[10%]">
